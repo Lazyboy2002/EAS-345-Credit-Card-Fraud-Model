@@ -10,6 +10,7 @@ library(smotefamily)
 
 
 
+
 #STEP 1: DATA INTEGRATION
 #STEP 1: DATA INTEGRATION
 #STEP 1: DATA INTEGRATION
@@ -439,3 +440,4 @@ test_set[, (cols_to_drop) := NULL]
 View(train_set)
 View(val_set)
 View(test_set)
+
