@@ -16,8 +16,8 @@ library(smotefamily)
 #STEP 1: DATA INTEGRATION
 
 # Load data using fread for speed
-train_transaction <- fread("train_transaction.csv")
-train_identity    <- fread("train_identity.csv")
+train_transaction <- readRDS("data/raw/train_transaction.rds")
+train_identity    <- readRDS("data/raw/train_identity.rds")
 
 
 
