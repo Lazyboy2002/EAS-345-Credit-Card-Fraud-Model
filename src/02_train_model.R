@@ -2,8 +2,8 @@ library(xgboost)
 
 # Load preprocessed data. Only load train_set and val_set.
 #do not train model on test set
-train_set <- readRDS("C:\\Users\\loghe\\OneDrive\\Desktop\\school\\buffalo\\2025-2026\\fall-2025\\courses\\eas345-intro-data-science\\project\\group_project_repo\\dataset\\ieee-fraud-detection\\train_set.rds")
-val_set   <- readRDS("C:\\Users\\loghe\\OneDrive\\Desktop\\school\\buffalo\\2025-2026\\fall-2025\\courses\\eas345-intro-data-science\\project\\group_project_repo\\dataset\\ieee-fraud-detection\\val_set.rds")
+train_set <- readRDS("data/train_set.rds")
+val_set   <- readRDS("data/val_set.rds")
 
 # Ensure everything is a flat data frame
 train_set <- as.data.frame(train_set)
