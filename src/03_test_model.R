@@ -10,7 +10,7 @@ library(pROC)
 library(PRROC)
 
 # Load preprocessed test set
-test_set <- readRDS("data/test_set.rds")
+test_set <- readRDS("data/processed/test_set.rds")
 
 #ensure test set is a flat data fram
 test_set   <- as.data.frame(test_set)
