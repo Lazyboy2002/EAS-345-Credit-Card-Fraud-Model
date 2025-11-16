@@ -1,9 +1,4 @@
-# ============================================
-# 03_test_model.R
-# Test XGBoost model on preprocessed test set
-# ============================================
-
-# 1️ Load libraries
+# Load libraries
 library(xgboost)
 library(caret)
 library(pROC)
@@ -31,7 +26,7 @@ X_test[] <- lapply(X_test, function(col) {
 dtest <- xgb.DMatrix(data = as.matrix(X_test), label = y_test)
 
 # Load the trained XGBoost model
-xgb_model <- xgb.load("output/xgb_fraud.model")
+xgb_model <- xgb.load("models/xgb_fraud.model")
 
 # Make predictions on the test set that does not have the isFraud feature
 #predictions are probabilities of fraud for every row in the test set

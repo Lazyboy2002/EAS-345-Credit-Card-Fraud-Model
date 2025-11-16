@@ -71,8 +71,8 @@ xgb_model <- xgb.train(
 
 # Save the trained model to the created directory
 
-#dir.create("output", showWarnings = FALSE)
-#xgb.save(xgb_model, "output/xgb_fraud.model")
+#dir.create("models", showWarnings = FALSE)
+#xgb.save(xgb_model, "models/xgb_fraud.model")
 
 #print feature importance matrix, which features were most useful for making predictions
 importance_matrix <- xgb.importance(model = xgb_model)
