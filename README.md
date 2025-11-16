@@ -64,7 +64,7 @@ How to Run the Project
 			Need to uncomment these two lines 
 
 				#dir.create("models", showWarnings = FALSE)
-				#xgb.save(xgb_model, "output/xgb_fraud.model")
+				#xgb.save(xgb_model, "models/xgb_fraud.model")
 
 			in order for the code to create the models directory and save the trained model to that directory.
 
