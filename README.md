@@ -43,6 +43,7 @@ Repository Structure
 			train_set.rds
 			val_set.rds
 	models/
+		xgb_fraud.model
 	src/
 		01_preprocess.R
 	    02_train_model.R
@@ -51,7 +52,7 @@ Repository Structure
 
 How to Run the Project
 
-	1. In R Studio, set your working directory to the project root:
+	1. In R Studio, set your working directory to the project root
 
 	2. Preprocess the data:
 
@@ -68,7 +69,8 @@ How to Run the Project
 
 			in order for the code to create the models directory and save the trained model to that directory.
 
-			NOTE: the models directory already exists on the public repository, so do not uncomment that line of code and commit any changes. Best to leave those lines commented out, the model will run fine.				
+			NOTE: the models directory already exists on the public repository, so do not uncomment that line of code and commit any changes. Best to leave those lines commented out, the model will run fine.	
+
 	4. Test/evaluate the model
 
 		Run src/03_test_model.R in R Studio
