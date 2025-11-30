@@ -44,6 +44,13 @@ pred_label <- ifelse(pred_prob > 0.5, 1, 0)
 cm <- confusionMatrix(as.factor(pred_label), as.factor(y_test), positive = "1")
 print(cm)
 
+#Precision and Recall
+precision <- cm$byClass["Precision"]
+recall    <- cm$byClass["Recall"]
+
+cat("Precision:", round(precision, 4), "\n")
+cat("Recall:", round(recall, 4), "\n")
+
 # ROC and AUC
 
 #receiver operating characteristic curve. 
@@ -69,7 +76,10 @@ pr <- pr.curve(
 plot(pr, main = "Precision-Recall Curve")
 
 #print feature importance matrix, which features were most useful for making predictions
-importance_matrix <- xgb.importance(model = xgb_model)
+importance_matrix <- xgb.importance(
+  feature_names = colnames(X_test),
+  model = xgb_model
+)
 
 #print top 10 features
 print(importance_matrix[1:10, ])
