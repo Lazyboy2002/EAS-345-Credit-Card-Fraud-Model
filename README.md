@@ -44,36 +44,54 @@ Repository Structure
 			val_set.rds
 	models/
 		xgb_fraud.model
+		final_xgb_model_cv.model
 	src/
-		01_preprocess.R
-	    02_train_model.R
-	    03_test_model.R
+		base_pipeline/
+			01_preprocess.R
+	    	02_train_model.R
+	    	03_test_model.R
+		cross_validation/
+			01_preprocess.R
+			02_train_model_cv.R
+			03_test_model_cv.R
+			train_test_cv.R
 	README.md
 
-How to Run the Project
+How to Train and Test the Base Model
 
 	1. In R Studio, set your working directory to the project root
 
 	2. Preprocess the data:
 
-		Run src/01_preprocess.R in R Studio
+		Run src/base_pipeline/01_preprocess.R in R Studio
 
 	3. Train the model
 
-		Run src/02_train_model.R in R Studio
-
-			Need to uncomment these two lines 
-
-				#dir.create("models", showWarnings = FALSE)
-				#xgb.save(xgb_model, "models/xgb_fraud.model")
-
-			in order for the code to create the models directory and save the trained model to that directory.
-
-			NOTE: the models directory already exists on the public repository, so do not uncomment that line of code and commit any changes. Best to leave those lines commented out, the model will run fine.	
+		Run src/base_pipeline/02_train_model.R in R Studio
 
 	4. Test/evaluate the model
 
-		Run src/03_test_model.R in R Studio
+		Run src/base_pipeline/03_test_model.R in R Studio
+
+How to Train and Test The 5-Fold Cross Validation Model
+
+	1. In R Studio, set your working directory to the project root
+
+	2. Preprocess the data:
+
+		Run src/cross_validation/01_preprocess.R in R Studio
+
+	3. Train the model
+
+		Run src/cross_validation/02_train_model_cv.R
+
+	4. Test/evaluate the model
+
+		Run src/cross_validation/03_test_model_cv.R
+
+	5. To train and test the model in one script
+
+		Run src/cross_validation/train_test_cv.R
 
 Required R Packages
 
