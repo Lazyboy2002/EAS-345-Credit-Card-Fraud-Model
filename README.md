@@ -44,7 +44,6 @@ Repository Structure
 			val_set.rds
 	models/
 		xgb_fraud.model
-		final_xgb_model_cv.model
 	src/
 		01_preprocess.R
 		02_train_model.R
