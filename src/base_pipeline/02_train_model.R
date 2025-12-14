@@ -53,6 +53,26 @@ params <- list(
   colsample_bytree = 0.8
 )
 
+#set the number of folds for cross validation
+k <- 5
+
+#set seed to ensure reproducibility
+set.seed(123)
+
+cv_folds <- split(seq_len(nrow(dtrain)), sample(rep(1:k, length.out = nrow(dtrain))))
+
+cv_model <- xgb.cv(
+  params = params,
+  data = dtrain,
+  nrounds = 2000,
+  folds = cv_folds,
+  early_stopping_rounds = 50,
+  maximize = TRUE,
+  verbose = 1
+)
+
+best_nrounds <- cv_model$best_iteration
+
 # Train the model with xgb.train()
 # params - the model parameters needed
 # data - the training data, an xgb.DMatrix
@@ -63,7 +83,7 @@ params <- list(
 xgb_model <- xgb.train(
   params = params,
   data = dtrain,
-  nrounds = 300,
+  nrounds = best_nrounds,
   watchlist = list(train = dtrain, val = dval),
   early_stopping_rounds = 30,
   print_every_n = 10
